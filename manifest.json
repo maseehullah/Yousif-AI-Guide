@@ -3,7 +3,7 @@
   "name": "Yousif AI Guide",
   "short_name": "Yousif AI",
   "description": "Intelligent English-Urdu educational architect and dictionary.",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#020617",
   "theme_color": "#2563eb",
@@ -21,5 +21,7 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "categories": ["education", "books", "utilities"],
+  "prefer_related_applications": false
 }

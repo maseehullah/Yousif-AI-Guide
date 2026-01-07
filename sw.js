@@ -1,15 +1,20 @@
 
-const CACHE_NAME = 'yousif-ai-v1';
+const CACHE_NAME = 'yousif-ai-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/manifest.json'
+  '/manifest.json',
+  '/logo-192.png',
+  '/logo-512.png'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
+      // Use silent failure for individual assets to ensure SW installs even if one icon is missing initially
+      return Promise.allSettled(
+        ASSETS_TO_CACHE.map(url => cache.add(url))
+      );
     })
   );
   self.skipWaiting();
@@ -31,9 +36,10 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Try network first, fall back to cache for assets
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+    fetch(event.request).catch(() => {
+      return caches.match(event.request);
     })
   );
 });

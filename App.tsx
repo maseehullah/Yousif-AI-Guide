@@ -100,8 +100,8 @@ const App: React.FC = () => {
             className="flex items-center gap-3 md:gap-4 cursor-pointer group"
             onClick={resetSearch}
           >
-            <div className="w-9 h-9 md:w-11 md:h-11 bg-blue-600 dark:bg-blue-500 rounded-xl md:rounded-2xl flex items-center justify-center text-white font-black text-lg md:text-2xl group-hover:bg-blue-700 transition-all duration-300 shadow-xl group-hover:scale-105">
-              Y
+            <div className="w-9 h-9 md:w-11 md:h-11 overflow-hidden rounded-xl md:rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-300">
+              <img src="/logo-192.png" alt="Yousif AI Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <h1 className="font-extrabold text-sm md:text-xl tracking-tight text-slate-900 dark:text-white leading-none">Yousif AI Guide</h1>
@@ -148,8 +148,12 @@ const App: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 md:px-8 pt-12 md:pt-20">
         {!definition && !loading ? (
           <div className="flex flex-col items-center text-center mb-14 md:mb-20 animate-in fade-in duration-1000">
-            <div className="w-20 h-20 md:w-28 md:h-28 bg-blue-50 dark:bg-blue-900/20 rounded-[2.5rem] flex items-center justify-center mb-8 md:mb-12 animate-float shadow-inner">
-               <Sparkles className="text-blue-600 dark:text-blue-400 w-10 h-10 md:w-14 md:h-14" />
+            <div className="w-24 h-24 md:w-36 md:h-36 mb-8 md:mb-12 animate-float">
+               <img 
+                 src="/logo-512.png" 
+                 alt="Yousif AI Large Logo" 
+                 className="w-full h-full object-contain drop-shadow-2xl rounded-[2rem] md:rounded-[3rem]"
+               />
             </div>
             <h2 className="text-4xl md:text-7xl font-black mb-6 md:mb-8 tracking-tighter leading-[1.1] transition-all duration-500">
               <span className="bg-clip-text text-transparent bg-gradient-to-br from-slate-900 to-slate-600 dark:from-blue-200 dark:via-blue-400 dark:to-indigo-300 dark:animate-glow">
@@ -201,8 +205,8 @@ const App: React.FC = () => {
               <div className="mt-12 flex flex-col items-center justify-center gap-4">
                 <div className="relative flex items-center justify-center">
                   <div className="absolute w-12 h-12 bg-blue-500 rounded-full animate-ring"></div>
-                  <div className="relative w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                    <Sparkles size={16} className="text-white animate-pulse" />
+                  <div className="relative w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                    <img src="/logo-192.png" alt="loading" className="w-full h-full object-cover animate-pulse" />
                   </div>
                 </div>
                 <div className="text-blue-500 dark:text-blue-400 font-black text-xs md:text-sm uppercase tracking-[0.4em] animate-pulse">

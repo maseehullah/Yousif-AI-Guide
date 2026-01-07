@@ -23,6 +23,7 @@ async function delay(ms: number) {
 }
 
 export async function fetchWordInfo(query: string, retryCount = 0): Promise<WordDefinition> {
+  // This uses the key from your Vercel Environment Variables
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   try {
@@ -83,6 +84,6 @@ export async function fetchWordInfo(query: string, retryCount = 0): Promise<Word
       await delay(1000 * (retryCount + 1));
       return fetchWordInfo(query, retryCount + 1);
     }
-    throw new Error("Connection error. Please try again.");
+    throw new Error("Connection error. Please check your internet or try again later.");
   }
 }
